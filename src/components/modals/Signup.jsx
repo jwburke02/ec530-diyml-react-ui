@@ -20,7 +20,7 @@ const Signup = ({ onClose }) => {
                 username: usernameText,
                 password: passwordText,
             });
-            console.log(response)
+            console.log(response.data)
         }
         catch (e) {
             console.log(e)
