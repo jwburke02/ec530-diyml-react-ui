@@ -109,3 +109,90 @@ button:focus-visible {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+/* LOGIN STYLING */
+.login-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 320px;
+  align-items: center;
+}
+
+#login-title {
+  font-size: 32px;
+}
+
+.input-field {
+  height: 32px;
+  width: 264px
+}
+
+.login-button-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 240px;
+  align-items: center;
+}
+
+#login-submit {
+  background-color: greenyellow;
+  color: black;
+  font-size: 18px;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+
+#login-cancel {
+  background-color: #efefef;
+  color: black;
+  font-size: 18px;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+
+/* SIGNUP STYLING */
+.signup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 320px;
+  align-items: center;
+}
+
+#signup-title {
+  font-size: 32px;
+}
+
+.signup-button-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 240px;
+  align-items: center;
+}
+
+#signup-submit {
+  background-color: greenyellow;
+  color: black;
+  font-size: 18px;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+
+#signup-cancel {
+  background-color: #efefef;
+  color: black;
+  font-size: 18px;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
