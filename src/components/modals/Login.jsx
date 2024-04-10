@@ -15,7 +15,7 @@ const Login = ({ onClose }) => {
     return (
         <div className="login">
             <div className="login-content">
-                <h2 id="login-title">Login to EC530 DIYML</h2>
+                <h2 id="login-title">Log In to EC530 DIYML</h2>
                 <input
                     className="input-field"
                     type="text"

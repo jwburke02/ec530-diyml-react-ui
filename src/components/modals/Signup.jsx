@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { baseApiUrl, authEndpoint } from '../../config'
 
 const Signup = ({ onClose }) => {
     const [usernameText, setUsernameText] = useState("");
@@ -10,6 +12,20 @@ const Signup = ({ onClose }) => {
 
     const handlePasswordChange = (event) => {
         setPasswordText(event.target.value);
+    }
+
+    const handleSignupSubmit = async() => {
+        try {
+            const response = await axios.put(baseApiUrl + authEndpoint, {
+                username: usernameText,
+                password: passwordText,
+            });
+            console.log(response)
+        }
+        catch (e) {
+            console.log(e)
+        }
+        onClose()
     }
 
     return (
@@ -32,7 +48,7 @@ const Signup = ({ onClose }) => {
                 />
                 <div className="signup-button-holder">
                     <button id="signup-cancel" onClick={onClose}>Cancel</button>
-                    <button id="signup-submit" onClick={onClose}>Sign Up</button>
+                    <button id="signup-submit" onClick={handleSignupSubmit}>Sign Up</button>
                 </div>
             </div>
         </div>
