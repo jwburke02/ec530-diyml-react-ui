@@ -110,6 +110,15 @@ button:focus-visible {
   padding-right: 20px;
 }
 
+#to-dashboard-button {
+  background-color: greenyellow;
+  color: black;
+  font-size: 32px;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 /* LOGIN STYLING */
 .login-content {
   display: flex;

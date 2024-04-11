@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { baseApiUrl, authEndpoint } from '../../config'
 
-const Login = ({ onClose }) => {
+const Login = ({ onClose, setApiToken, setUsername }) => {
     const [usernameText, setUsernameText] = useState("");
     const [passwordText, setPasswordText] = useState("");
 
@@ -20,7 +20,8 @@ const Login = ({ onClose }) => {
                 username: usernameText,
                 password: passwordText,
             });
-            console.log(response.data)
+            setUsername(response.data['username'])
+            setApiToken(response.data['api_token'])
         }
         catch (e) {
             console.log(e)

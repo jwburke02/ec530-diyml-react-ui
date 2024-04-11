@@ -1,5 +1,5 @@
 // base backend url
-export const baseApiUrl = 'http://localhost:8080'
+export const baseApiUrl = 'http://localhost:7001'
 
 // backend endpoints
 export const authEndpoint = "/auth"

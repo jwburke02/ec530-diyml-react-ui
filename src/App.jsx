@@ -1,14 +1,17 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
-import About from './components/About'
+import Dashboard from './components/Dashboard'
 
 function App() {
+  const [username, setUsername] = React.useState(null);
+  const [apiToken, setApiToken] = React.useState(null);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<Home username={username} apiToken={apiToken} setUsername={setUsername} setApiToken={setApiToken}/>} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   )
