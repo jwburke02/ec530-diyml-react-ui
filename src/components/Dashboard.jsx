@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { baseApiUrl, uploadProjectEndpoint } from '../config';
+import { baseApiUrl, uploadClassEndpoint, uploadProjectEndpoint } from '../config';
 
 /*
   Dashboard Component
@@ -42,6 +42,32 @@ const Dashboard = ({username, apiToken}) => {
     }
   }
 
+  const stringFromClassList = (class_list) => {
+    var newString = ""
+    for (var i = 0; i < class_list.length; i++) {
+      if (i != class_list.length - 1) {
+        newString += (class_list[i] + ', ');
+      }
+      else {
+        newString += class_list[i];
+      }
+    }
+    return newString;
+  }
+
+  const onDeleteClasses = async(e, project_name) => {
+    try {
+      const response = await axios.patch(baseApiUrl + uploadClassEndpoint, {
+        project_name: project_name,
+        api_token: apiToken
+      });
+      console.log(response.data)
+      fetchDataAsync();
+    } catch (error) {
+      console.error('Error - ', error);
+    }
+  }
+
   return (
     <div id="main-dashboard-div">
       <h1 id="dashboard-project-title">{username}'s Projects!</h1>
@@ -53,10 +79,13 @@ const Dashboard = ({username, apiToken}) => {
           <p className="dash-project-type">{project['project_type'][0].toUpperCase() + project['project_type'].slice(1)}</p>
           {project['is_published'] ? <p className="dash-project-published">Published</p> : 
           <p className="dash-project-published">Not published</p>}
-          {project['classes'].length < 1 ? <p class="dash-project-classes">No classes defined yet.</p> : 
-          project['classes'].map((class_name, idx) => (<p key={idx} class="dash-project-classes">{class_name}</p>))
+          {project['classes'].length < 1 ? <button onClick={() => {navigate(`/addclasses/${project.project_name}`)}} class="dash-project-button-modify-classes">Add Classes</button> : 
+          <>
+          <p class="dash-project-class-heading">Classes:</p>
+          <p class="dash-project-classes">{stringFromClassList(project['classes'])}</p>
+          <button onClick={(e) => onDeleteClasses(e, project['project_name'])} class="dash-project-button-delete-classes">Delete Classes</button>
+          </>
           }
-          <button class="dash-project-button-modify-classes">Add Classes</button>
           <button onClick={(e) => onDeleteProject(e, project['project_name'])} class="dash-project-button-delete-project">Delete Project</button>
         </div>
         </>

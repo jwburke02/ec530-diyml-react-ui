@@ -273,3 +273,9 @@ button:focus-visible {
   color: red;
   border-color: red;
 }
+.dash-project-button-delete-classes {
+  margin-bottom: 20px;
+  background-color: #121212;
+  color: #FFCDCD;
+  border-color: #FFCDCD;
+}
