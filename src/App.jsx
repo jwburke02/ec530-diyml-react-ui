@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard'
 import CreateProject from './components/CreateProject'
 import AddClasses from './components/AddClasses'
 import AddData from './components/AddData'
+import Inference from './components/Inference'
 
 function App() {
   const [username, setUsername] = React.useState(null);
@@ -18,6 +19,7 @@ function App() {
         <Route path="/createproject" element={<CreateProject apiToken={apiToken}/>} />
         <Route path="/addclasses/:project_name" element={<AddClasses apiToken={apiToken} />} />
         <Route path="/adddata/:project_name" element={<AddData apiToken={apiToken} />} />
+        <Route path="/inference/:project_name" element={<Inference apiToken={apiToken} />} />
       </Routes>
     </BrowserRouter>
   )

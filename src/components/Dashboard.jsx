@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { baseApiUrl, uploadClassEndpoint, uploadProjectEndpoint } from '../config';
+import { baseApiUrl, trainEndpoint, uploadClassEndpoint, uploadProjectEndpoint } from '../config';
 
 /*
   Dashboard Component
@@ -68,6 +68,21 @@ const Dashboard = ({username, apiToken}) => {
     }
   }
 
+  const onTrainProject = async(e, project_name) => {
+    try {
+      const response = await axios.put(baseApiUrl + trainEndpoint, {
+        project_name: project_name,
+        api_token: apiToken,
+        train_split: 0.80,
+        epochs: 25
+      })
+      console.log(response.data)
+      fetchDataAsync();
+    } catch (error) {
+      console.error('Error - ', error);
+    }
+  }
+
   return (
     <div id="main-dashboard-div">
       <h1 id="dashboard-project-title">{username}'s Projects!</h1>
@@ -88,7 +103,11 @@ const Dashboard = ({username, apiToken}) => {
           }
           <button onClick={(e) => onDeleteProject(e, project['project_name'])} class="dash-project-button-delete-project">Delete Project</button>
         </div>
-        <button onClick={() => {navigate(`/adddata/${project.project_name}`)}} className="dash-project-add-data-button">Add Data to Project</button>
+        <div className="dash-proj-button-hold">
+          <button onClick={() => {navigate(`/adddata/${project.project_name}`)}} className="dash-project-add-data-button">Add Data to Project</button>
+          <button onClick={(e) => {onTrainProject(e, project['project_name'])}} className="dash-project-train-button">Train Project</button>
+          {project['current_url'] != "NONE" ? <button onClick={() => {navigate(`/inference/${project.project_name}`)}} className="dash-project-infer-button">Make Inference</button> : <></>}
+        </div>
         </div>
       ))}</> : <>No projects yet...</>}
     </div>
