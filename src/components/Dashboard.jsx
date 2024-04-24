@@ -73,7 +73,7 @@ const Dashboard = ({username, apiToken}) => {
       <h1 id="dashboard-project-title">{username}'s Projects!</h1>
       <button onClick={() => {navigate("/createproject")}} id="dashboard-create-project-button">Create new project</button>
       {projectData != [] ? <>{projectData.map((project, index) => (
-        <>
+        <div className="dash-proj-div-cont">
         <div className="dash-project-div" key={index}>
           <p className="dash-project-name">{project['project_name']}</p>
           <p className="dash-project-type">{project['project_type'][0].toUpperCase() + project['project_type'].slice(1)}</p>
@@ -88,7 +88,8 @@ const Dashboard = ({username, apiToken}) => {
           }
           <button onClick={(e) => onDeleteProject(e, project['project_name'])} class="dash-project-button-delete-project">Delete Project</button>
         </div>
-        </>
+        <button onClick={() => {navigate(`/adddata/${project.project_name}`)}} className="dash-project-add-data-button">Add Data to Project</button>
+        </div>
       ))}</> : <>No projects yet...</>}
     </div>
   );

@@ -232,7 +232,7 @@ button:focus-visible {
 }
 
 .dash-project-div {
-  width: 480px;
+  width: 640px;
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -278,4 +278,16 @@ button:focus-visible {
   background-color: #121212;
   color: #FFCDCD;
   border-color: #FFCDCD;
+}
+.dash-proj-div-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.dash-project-add-data-button {
+  margin-left: 20px;
+  background-color: #121212;
+  color: lightskyblue;
+  border-color: lightblue;
 }
