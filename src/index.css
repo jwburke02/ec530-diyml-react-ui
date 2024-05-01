@@ -310,3 +310,10 @@ button:focus-visible {
   color: orange;
   border-color: yellow;
 }
+.dash-project-publish-button {
+  margin-left: 20px;
+  margin-top: 20px;
+  background-color: #121212;
+  color: purple;
+  border-color: blueviolet;
+}

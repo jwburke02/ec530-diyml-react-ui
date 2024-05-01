@@ -16,16 +16,17 @@ const AddData = ({apiToken}) => {
         setLabelString(e.target.value);
     }
 
-    const handleDataPointNameChange = (e) => {
-        setDataPointName(e.target.value);
-    }
-
     const handleCancel = (e) => {
         navigate("/dashboard")
     }
 
+    const handleMore = (e) => {
+        navigate(`/adddatas/${project_name}`)
+    }
+
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
+        setDataPointName(file.name)
         const reader = new FileReader();
 
         reader.onloadend = () => {
@@ -59,20 +60,15 @@ const AddData = ({apiToken}) => {
     }
 
     return (
-        <div class="add-class-div">
+        <div className="add-class-div">
+            <p>Adding a Singular Data Point</p>
+            <button onClick={handleMore}>(Enter More)</button>
             <p>Adding new data point for {project_name}</p>
             <p>Input an image file: </p>
             <input 
                 type="file" 
                 accept="image/*" 
                 onChange={handleImageUpload} 
-            />
-            <p>Enter a name for your new data point</p>
-            <input
-                type="text"
-                id="dataPointName"
-                value={dataPointName}
-                onChange={handleDataPointNameChange}
             />
             <p>Enter label information with no spaces, seperated by the '|' character</p>
             <input

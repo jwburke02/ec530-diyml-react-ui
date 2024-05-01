@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { baseApiUrl, trainEndpoint, uploadClassEndpoint, uploadProjectEndpoint } from '../config';
+import { baseApiUrl, publishEndpoint, trainEndpoint, uploadClassEndpoint, uploadProjectEndpoint } from '../config';
 
 /*
   Dashboard Component
@@ -92,7 +92,7 @@ const Dashboard = ({username, apiToken}) => {
         <div className="dash-project-div" key={index}>
           <p className="dash-project-name">{project['project_name']}</p>
           <p className="dash-project-type">{project['project_type'][0].toUpperCase() + project['project_type'].slice(1)}</p>
-          {project['is_published'] ? <p className="dash-project-published">Published</p> : 
+          {project['is_published'] == "True" ? <p className="dash-project-published">Published</p> : 
           <p className="dash-project-published">Not published</p>}
           {project['classes'].length < 1 ? <button onClick={() => {navigate(`/addclasses/${project.project_name}`)}} class="dash-project-button-modify-classes">Add Classes</button> : 
           <>
@@ -107,6 +107,8 @@ const Dashboard = ({username, apiToken}) => {
           <button onClick={() => {navigate(`/adddata/${project.project_name}`)}} className="dash-project-add-data-button">Add Data to Project</button>
           <button onClick={(e) => {onTrainProject(e, project['project_name'])}} className="dash-project-train-button">Train Project</button>
           {project['current_url'] != "NONE" ? <button onClick={() => {navigate(`/inference/${project.project_name}`)}} className="dash-project-infer-button">Make Inference</button> : <></>}
+          {project['current_url'] != "NONE" & project['is_published'] == "False" ? <button onClick={async() => {await axios.put(baseApiUrl + publishEndpoint, {project_name: project['project_name'], api_token: apiToken, is_published: "True"}); fetchDataAsync();}} className="dash-project-publish-button">Publish/Unpublish</button> : <></>}
+          {project['current_url'] != "NONE" & project['is_published'] == "True" ? <button onClick={async() => {await axios.put(baseApiUrl + publishEndpoint, {project_name: project['project_name'], api_token: apiToken, is_published: "False"}); fetchDataAsync();}} className="dash-project-publish-button">Publish/Unpublish</button> : <></>}
         </div>
         </div>
       ))}</> : <>No projects yet...</>}
