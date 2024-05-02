@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { baseApiUrl, uploadClassEndpoint, uploadDataEndpoint, uploadProjectEndpoint } from '../config';
+import { baseApiUrl, uploadClassEndpoint, uploadDataEndpoint, uploadProjectEndpoint } from '../../config';
 import axios from 'axios';
+import './adddata.css'
 
 const AddData = ({apiToken}) => {
     const {project_name} = useParams();
@@ -60,25 +61,31 @@ const AddData = ({apiToken}) => {
     }
 
     return (
-        <div className="add-class-div">
-            <p>Adding a Singular Data Point</p>
-            <button onClick={handleMore}>(Enter More)</button>
-            <p>Adding new data point for {project_name}</p>
-            <p>Input an image file: </p>
+        <div className="formadd">
+            <div className="add-data-div">
+            <div class="row">
+                <p className="add-data-info-multi">Adding a Singular Data Point</p>
+                <button className="button-switch" onClick={handleMore}>(Enter More)</button>
+            </div>
+            <p className='add-header'>Adding new data point for {project_name}</p>
+            <p className='image-label'>Input an image file: </p>
             <input 
                 type="file" 
                 accept="image/*" 
                 onChange={handleImageUpload} 
             />
-            <p>Enter label information with no spaces, seperated by the '|' character</p>
+            <p className='label-label'>Enter label information with no spaces, seperated by the '|' character</p>
             <input
                 type="text"
                 id="labelString"
                 value={labelString}
                 onChange={handleLabelStringChange}
             />
-            <button onClick={handleCancel}>Cancel</button>
-            <button onClick={handleSubmit}>Save</button>
+            <div class="row">
+                <button className="cancel" onClick={handleCancel}>Cancel</button>
+                <button className="save" onClick={handleSubmit}>Save</button>
+            </div>
+            </div>
         </div>
     );
 };

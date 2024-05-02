@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
-import Dashboard from './components/Dashboard'
-import CreateProject from './components/CreateProject'
-import AddClasses from './components/AddClasses'
-import AddData from './components/AddData'
-import AddDatas from './components/AddDatas'
-import Inference from './components/Inference'
+import Dashboard from './components/Dashboard/Dashboard'
+import CreateProject from './components/CreateProject/CreateProject'
+import AddClasses from './components/AddClasses/AddClasses'
+import AddData from './components/AddData/AddData'
+import AddDatas from './components/AddData/AddDatas'
+import Inference from './components/Inference/Inference'
 
 function App() {
   const [username, setUsername] = React.useState(null);

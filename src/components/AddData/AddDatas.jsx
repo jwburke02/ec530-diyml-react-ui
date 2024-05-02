@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { baseApiUrl, uploadClassEndpoint, uploadDataEndpoint, uploadProjectEndpoint } from '../config';
+import { baseApiUrl, uploadClassEndpoint, uploadDataEndpoint, uploadProjectEndpoint } from '../../config';
 import axios from 'axios';
+import './adddata.css'
 
 const AddDatas = ({apiToken}) => {
     const {project_name} = useParams();
@@ -101,26 +102,32 @@ const AddDatas = ({apiToken}) => {
     }
 
     return (
-        <div className="add-class-div">
-            <p>Adding Multiple Data Points</p>
-            <button onClick={handleSingle}>(Enter Single)</button>
-            <p>Adding new data points for {project_name}</p>
-            <p>Input image files: </p>
-            <input 
-                type="file" 
-                accept="image/*" 
-                multiple
-                onChange={handleImagesUpload} 
-            />
-            <p>Input corresponding text files: </p>
-            <input 
-                type="file" 
-                accept="text/plain" 
-                multiple
-                onChange={handleTextFilesUpload} 
-            />
-            <button onClick={handleCancel}>Cancel</button>
-            <button onClick={handleSubmit}>Save</button>
+        <div className="formadd">
+            <div className="add-data-div">
+            <div class="row">
+                <p className="add-data-info-multi">Adding Multiple Data Points</p>
+                <button className="button-switch" onClick={handleSingle}>(Enter Single)</button>
+            </div>
+                <p className='add-header'>Adding new data points for {project_name}</p>
+                <p className='image-label'>Input image files: </p>
+                <input 
+                    type="file" 
+                    accept="image/*" 
+                    multiple
+                    onChange={handleImagesUpload} 
+                />
+                <p className='label-label'>Input corresponding text files: </p>
+                <input 
+                    type="file" 
+                    accept="text/plain" 
+                    multiple
+                    onChange={handleTextFilesUpload} 
+                />
+                <div class="row">
+                    <button className="cancel" onClick={handleCancel}>Cancel</button>
+                    <button className="save" onClick={handleSubmit}>Save</button>
+                </div>
+            </div>
         </div>
     );
 };

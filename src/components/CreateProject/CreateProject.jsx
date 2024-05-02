@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { baseApiUrl, uploadProjectEndpoint } from '../config';
+import { baseApiUrl, uploadProjectEndpoint } from '../../config';
 import axios from 'axios';
+import './createProject.css'
 
 const CreateProject = ({apiToken}) => {
   const [projectName, setProjectName] = useState('');
@@ -40,9 +41,9 @@ const CreateProject = ({apiToken}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="projectName">Project Name:</label>
+    <form id="form" onSubmit={handleSubmit}>
+      <div class="label-hold">
+        <label class="label" htmlFor="projectName">Project Name</label>
         <input
           type="text"
           id="projectName"
@@ -50,19 +51,20 @@ const CreateProject = ({apiToken}) => {
           onChange={handleProjectNameChange}
         />
       </div>
-      <div>
-        <label htmlFor="projectType">Project Type:</label>
+      <div class="label-hold">
+        <label class="label" htmlFor="projectType">Project Type</label>
         <select
           id="projectType"
           value={projectType}
           onChange={handleProjectTypeChange}
         >
           <option value="Classification">Classification</option>
+          <option value="Object Detection">Object Detection</option>
         </select>
       </div>
-      <div>
-        <button type="button" onClick={handleCancel}>Cancel</button>
-        <button type="submit" onClick={handleSubmit}>Create Project</button>
+      <div id="button-hold">
+        <button id="cancel" type="button" onClick={handleCancel}>Cancel</button>
+        <button id="submit" type="submit" onClick={handleSubmit}>Create Project</button>
       </div>
     </form>
   );

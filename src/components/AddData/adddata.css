@@ -1,0 +1,55 @@
+.formadd {
+    width: 100vw;
+}
+.row {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.add-data-div {
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    margin: auto;
+    align-items: center;
+    border: solid;
+    border-color: black;
+    border-width: 3px;
+    padding: 10px;
+}
+.add-data-info-multi {
+    font-size: 12px;
+    margin-right: 20px;
+}
+.button-switch {
+    height: 36px;
+    font-size: 12px;
+    color: #EFEFEF;
+}
+.add-header {
+    font-size: 18px;
+    border-bottom: solid;
+    border-color: #EFEFEF
+}
+.cancel {
+    background-color: #767676;
+    color: black;
+    font-size: 12px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.save {
+    background-color: greenyellow;
+    color: black;
+    font-size: 12px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}

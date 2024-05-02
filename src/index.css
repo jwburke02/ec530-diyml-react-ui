@@ -67,12 +67,19 @@ button:focus-visible {
   }
 }
 
+* {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
 /*
   CSS STYLINGS FOR HOME PAGE
 */
 #main-heading-home {
-  color: greenyellow;
-  font-size: 64px;
+  color: #ABABAB;
+  border-bottom: solid;
+  border-color: #EFEFEF;
+  font-size: 48px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .main-home-div {
@@ -204,116 +211,4 @@ button:focus-visible {
   padding-left: 20px;
   padding-right: 20px;
   margin-top: 10px;
-}
-
-/*
-  DASHBOARD STYLING
-*/
-
-#main-dashboard-div {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-#dashboard-project-title {
-  font-size: 48px;
-  color: greenyellow;
-}
-
-#dashboard-create-project-button {
-  background-color: #565656;
-  color: greenyellow;
-  border-color: white;
-  border: solid;
-  border-width: 2px;
-}
-
-.dash-project-div {
-  width: 640px;
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  border: solid;
-  border-radius: 10px;
-  border-width: 4px;
-  border-color: greenyellow;
-  margin-top: 20px;
-}
-
-.dash-project-name {
-  margin-left: 20px;
-  font-size: 24px;
-  margin-bottom: 0;
-  border-bottom: solid;
-  border-color: greenyellow;
-  width: 50%;
-  color: #EFEFEF;
-}
-.dash-project-type {
-  margin-left: 20px;
-  margin-bottom: 0;
-  color: #EFEFEF
-}
-.dash-project-published {
-  margin-left: 20px;
-  color: #EFEFEF
-}
-.dash-project-button-modify-classes {
-  margin-bottom: 20px;
-  background-color: #888888;
-  color: #EFEFEF;
-  border-color: #EFEFEF;
-}
-.dash-project-button-delete-project {
-  margin-bottom: 20px;
-  background-color: #121212;
-  color: red;
-  border-color: red;
-}
-.dash-project-button-delete-classes {
-  margin-bottom: 20px;
-  background-color: #121212;
-  color: #FFCDCD;
-  border-color: #FFCDCD;
-}
-.dash-proj-div-cont {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-.dash-proj-button-hold {
-  display: flex; 
-  flex-direction: column;
-  justify-content: space-around;
-}
-.dash-project-add-data-button {
-  margin-left: 20px;
-  background-color: #121212;
-  color: lightskyblue;
-  border-color: lightblue;
-}
-.dash-project-train-button {
-  margin-left: 20px;
-  margin-top: 20px;
-  background-color: #121212;
-  color: lightgreen;
-  border-color: green;
-}
-.dash-project-infer-button {
-  margin-left: 20px;
-  margin-top: 20px;
-  background-color: #121212;
-  color: orange;
-  border-color: yellow;
-}
-.dash-project-publish-button {
-  margin-left: 20px;
-  margin-top: 20px;
-  background-color: #121212;
-  color: purple;
-  border-color: blueviolet;
 }

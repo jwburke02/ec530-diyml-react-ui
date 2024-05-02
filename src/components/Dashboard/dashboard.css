@@ -1,0 +1,119 @@
+#main-dashboard-div {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#dashboard-project-title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 52px;
+    color: #EFEFEF;
+}
+
+#create-project {
+    background-color: #121212;
+    color: #ABABAB;
+    border-color: ABABAB;
+    border: solid;
+    border-width: 2px;
+    margin-bottom: 20px;
+}
+
+.dash-project-div {
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    border: solid;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: #121212;
+    margin-top: 20px;
+}
+
+.dash-project-name {
+    margin-left: 20px;
+    font-size: 24px;
+    margin-bottom: 0;
+    border-bottom: solid;
+    border-color: #000000;
+    border-width: 2px;
+    color: #EFEFEF;
+}
+
+.dash-project-type {
+    margin-left: 20px;
+    margin-bottom: 0;
+    color: #EFEFEF
+}
+
+.dash-project-published {
+    margin-left: 20px;
+    color: #EFEFEF
+}
+
+.modify-classes {
+    margin-bottom: 20px;
+    background-color: #888888;
+    color: #EFEFEF;
+    border-color: #EFEFEF;
+}
+.delete-project {
+    margin-bottom: 20px;
+    background-color: #121212;
+    color: red;
+    border-color: red;
+}
+.delete-classes {
+    margin-bottom: 20px;
+    background-color: #121212;
+    color: #FFCDCD;
+    border-color: #FFCDCD;
+}
+.project-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: solid;
+    padding: 20px;
+    border-radius: 20px;
+    border-color: #000000;
+    border-width: 3px;
+    background-color: #343434;
+    margin-bottom: 20px;
+}
+.button-holder {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+}
+.add-data-button {
+    margin-left: 20px;
+    background-color: #121212;
+    color: lightskyblue;
+    border-color: lightblue;
+}
+.train-button {
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: #121212;
+    color: lightgreen;
+    border-color: green;
+}
+.infer-button {
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: #121212;
+    color: orange;
+    border-color: yellow;
+}
+.publish-button {
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: #121212;
+    color: purple;
+    border-color: blueviolet;
+}

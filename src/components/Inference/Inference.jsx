@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { baseApiUrl, inferenceEndpoint, uploadClassEndpoint, uploadDataEndpoint, uploadProjectEndpoint } from '../config';
+import { baseApiUrl, inferenceEndpoint, uploadClassEndpoint, uploadDataEndpoint, uploadProjectEndpoint } from '../../config';
 import axios from 'axios';
+import './inference.css'
 
 const Inference = ({apiToken}) => {
     const {project_name} = useParams();
@@ -64,26 +65,33 @@ const Inference = ({apiToken}) => {
           }
     }
 
+    const coordsToString = (coords) => {
+        return `[${Math.trunc(coords[0])}, ${Math.trunc(coords[1])}, ${Math.trunc(coords[2])}, ${Math.trunc(coords[3])}]`
+    }
+
     return (
-        <div class="add-class-div">
-            <p>Using {project_name} to make an inference</p>
-            <p>Input an image file: </p>
+        <div id="infer-div">
+            <p id="infer-title">Using {project_name} to make an inference</p>
+            <p id="infer-input-prompt">Input an image file: </p>
             <input 
                 type="file" 
                 accept="image/*" 
                 onChange={handleImageUpload} 
             />
-            <button onClick={handleCancel}>Cancel</button>
-            <button onClick={handleInfer}>Infer</button>
+            <div id="button-hold">
+                <button id="cancel-button" onClick={handleCancel}>Cancel</button>
+                <button id="infer-button" onClick={handleInfer}>Infer</button>
+            </div>
             {outputInference == null ? <></> :
             <>
-                {Array.isArray(outputInference) ? <p>Nothing was found inside of the image.</p> : 
+                {Array.isArray(outputInference) & outputInference[0] == "Nothing was " ? <p>Nothing was found inside of the image.</p> : 
                 <>
                     {console.log(outputInference)}
                     {outputInference.map((detection, index) => (
-                        <div>
-                            <p>{detection['classification']}</p>
-                            <p>{detection['confidence']}</p>
+                        <div class="detect-conf-div">
+                            <p class="detection">Detected Object: {detection['classification']}</p>
+                            <p class="conf">Confidence Score: {detection['confidence']}</p>
+                            <p class="location">Location: {coordsToString(detection['coords'])}</p>
                         </div>
                     ))}
                 </>
