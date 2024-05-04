@@ -84,7 +84,7 @@ const Home = ({username, apiToken, setUsername, setApiToken}) => {
                 </>
                 :
                 <>
-                <h1 id="main-heading-home">Welcome to EC530 DIYML</h1>
+                <h1 id="main-heading-home">Welcome to EC530 DIYML, {username}</h1>
                 <button id="to-dashboard-button" onClick={() => {navigate("/dashboard")}}>Dashboard</button>
                 <h1 id="sub-heading-home">Or Search for a User's Published Projects</h1>
                 <div id="search-div">
