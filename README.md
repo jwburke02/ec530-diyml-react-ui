@@ -102,4 +102,5 @@ Inside the folder `Demonstration Videos`, there are videos which show this Web A
     - Inference process is same as above besides preliminary searching for the user
     - This video showcases object detection is capable of multiple object detection
     - This video showcases that only published projects are searchable, as Joveve's unpublished projects do not display for the new user
-
+# Application Testing
+The E530 DIYML Frontend Application is unit tested using the Jest package for React JS. This allows us to test jsx files, using Babel to convert between jsx and js for testing purposes.
