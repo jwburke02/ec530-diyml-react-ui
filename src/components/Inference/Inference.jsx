@@ -89,7 +89,7 @@ const Inference = ({home, apiToken}) => {
             </div>
             {outputInference == null ? <></> :
             <>
-                {Array.isArray(outputInference) & outputInference[0] == "Nothing was " ? <p>Nothing was found inside of the image.</p> : 
+                {Array.isArray(outputInference) & outputInference[0] == "Nothing Detected in Image" ? <p>Nothing was found inside of the image.</p> : 
                 <>
                     {console.log(outputInference)}
                     {outputInference.map((detection, index) => (
