@@ -82,6 +82,14 @@ button:focus-visible {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+#sub-heading-home {
+  color: #ABABAB;
+  border-bottom: dashed;
+  border-color: #EFEFEF;
+  font-size: 24px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .main-home-div {
   display: flex;
   flex-direction: column;
@@ -118,7 +126,7 @@ button:focus-visible {
 }
 
 #to-dashboard-button {
-  background-color: greenyellow;
+  background-color: #EFEFEF;
   color: black;
   font-size: 32px;
   padding: 15px;
@@ -211,4 +219,26 @@ button:focus-visible {
   padding-left: 20px;
   padding-right: 20px;
   margin-top: 10px;
+}
+
+.project-container-home {
+  display: flex;
+  flex-direction: column;
+  border: solid;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border-color: #767676;
+  background-color: #898989;
+  border-width: 3px;
+}
+.project-container-home p {
+  color: black;
+  font-weight: bold;
+}
+.user-input {
+  margin-right: 30px;
+  height: 30px;
+  width: 210px;
+  border-radius: 5px;
 }

@@ -21,7 +21,8 @@ function App() {
         <Route path="/addclasses/:project_name" element={<AddClasses apiToken={apiToken} />} />
         <Route path="/adddata/:project_name" element={<AddData apiToken={apiToken} />} />
         <Route path="/adddatas/:project_name" element={<AddDatas apiToken={apiToken} />} />
-        <Route path="/inference/:project_name" element={<Inference apiToken={apiToken} />} />
+        <Route path="/inference/:project_name" element={<Inference home={false} apiToken={apiToken} />} />
+        <Route path="/inference_home/:project_name" element={<Inference home={true} apiToken={apiToken} />} />
       </Routes>
     </BrowserRouter>
   )

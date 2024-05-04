@@ -87,29 +87,32 @@ const Dashboard = ({username, apiToken}) => {
   return (
     <div id="main-dashboard-div">
       <h1 id="dashboard-project-title">{username}'s Projects</h1>
-      <button onClick={() => {navigate("/createproject")}} id="create-project">Create new project</button>
+      <div id="top-button-row">
+        <button onClick={() => {navigate("/")}} id="back-button">Go Back</button>
+        <button onClick={() => {navigate("/createproject")}} id="create-project">Create new project</button>
+      </div>
       {projectData != [] ? <>{projectData.map((project, index) => (
         <div className="project-container">
-        <div className="dash-project-div" key={index}>
-          <p className="dash-project-name">{project['project_name']}</p>
-          <p className="dash-project-type">Project Type - {project['project_type'][0].toUpperCase() + project['project_type'].slice(1)}</p>
-          {project['is_published'] == "True" ? <p className="dash-project-published">Project is published</p> : 
-          <p className="dash-project-published">Project is not published</p>}
-          {project['classes'].length < 1 ? <button onClick={() => {navigate(`/addclasses/${project.project_name}`)}} class="dash-button modify-classes">Add Classes</button> : 
-          <>
-          <p class="dash-project-classes">Classes: {stringFromClassList(project['classes'])}</p>
-          <button onClick={(e) => onDeleteClasses(e, project['project_name'])} class="dash-button delete-classes">Delete Classes</button>
-          </>
-          }
-          <button onClick={(e) => onDeleteProject(e, project['project_name'])} class="dash-button delete-project">Delete Project</button>
-        </div>
-        <div className="button-holder">
-          <button onClick={() => {navigate(`/adddata/${project.project_name}`)}} className="dash-button add-data-button">Add Data to Project</button>
-          <button onClick={(e) => {onTrainProject(e, project['project_name'])}} className="dash-button train-button">Train Project</button>
-          {project['current_url'] != "NONE" & project['is_published'] == "True" ? <button onClick={() => {navigate(`/inference/${project.project_name}`)}} className="dash-button infer-button">Make Inference</button> : <></>}
-          {project['current_url'] != "NONE" & project['is_published'] == "False" ? <button onClick={async() => {await axios.put(baseApiUrl + publishEndpoint, {project_name: project['project_name'], api_token: apiToken, is_published: "True"}); fetchDataAsync();}} className="dash-button publish-button">Publish/Unpublish</button> : <></>}
-          {project['current_url'] != "NONE" & project['is_published'] == "True" ? <button onClick={async() => {await axios.put(baseApiUrl + publishEndpoint, {project_name: project['project_name'], api_token: apiToken, is_published: "False"}); fetchDataAsync();}} className="dash-button publish-button">Publish/Unpublish</button> : <></>}
-        </div>
+          <div className="dash-project-div" key={index}>
+            <p className="dash-project-name">{project['project_name']}</p>
+            <p className="dash-project-type">Project Type - {project['project_type'][0].toUpperCase() + project['project_type'].slice(1)}</p>
+            {project['is_published'] == "True" ? <p className="dash-project-published">Project is published</p> : 
+            <p className="dash-project-published">Project is not published</p>}
+            {project['classes'].length < 1 ? <button onClick={() => {navigate(`/addclasses/${project.project_name}`)}} class="dash-button modify-classes">Add Classes</button> : 
+            <>
+            <p class="dash-project-classes">Classes: {stringFromClassList(project['classes'])}</p>
+            <button onClick={(e) => onDeleteClasses(e, project['project_name'])} class="dash-button delete-classes">Delete Classes</button>
+            </>
+            }
+            <button onClick={(e) => onDeleteProject(e, project['project_name'])} class="dash-button delete-project">Delete Project</button>
+          </div>
+          <div className="button-holder">
+            <button onClick={() => {navigate(`/adddata/${project.project_name}`)}} className="dash-button add-data-button">Add Data to Project</button>
+            <button onClick={(e) => {onTrainProject(e, project['project_name'])}} className="dash-button train-button">Train Project</button>
+            {project['current_url'] != "NONE" & project['is_published'] == "True" ? <button onClick={() => {navigate(`/inference/${project.project_name}`)}} className="dash-button infer-button">Make Inference</button> : <></>}
+            {project['current_url'] != "NONE" & project['is_published'] == "False" ? <button onClick={async() => {await axios.put(baseApiUrl + publishEndpoint, {project_name: project['project_name'], api_token: apiToken, is_published: "True"}); fetchDataAsync();}} className="dash-button publish-button">Publish/Unpublish</button> : <></>}
+            {project['current_url'] != "NONE" & project['is_published'] == "True" ? <button onClick={async() => {await axios.put(baseApiUrl + publishEndpoint, {project_name: project['project_name'], api_token: apiToken, is_published: "False"}); fetchDataAsync();}} className="dash-button publish-button">Publish/Unpublish</button> : <></>}
+          </div>
         </div>
       ))}</> : <>No projects yet...</>}
     </div>

@@ -12,6 +12,21 @@
     color: #EFEFEF;
 }
 
+#top-button-row {
+    display: flex;
+    flex-direction: row;
+}
+
+#back-button {
+    background-color: #121212;
+    color: #ABABAB;
+    border-color: ABABAB;
+    border: solid;
+    border-width: 2px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
 #create-project {
     background-color: #121212;
     color: #ABABAB;
@@ -19,6 +34,7 @@
     border: solid;
     border-width: 2px;
     margin-bottom: 20px;
+    margin-left: 10px;
 }
 
 .dash-project-div {

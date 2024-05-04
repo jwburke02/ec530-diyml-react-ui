@@ -4,7 +4,7 @@ import { baseApiUrl, inferenceEndpoint, uploadClassEndpoint, uploadDataEndpoint,
 import axios from 'axios';
 import './inference.css'
 
-const Inference = ({apiToken}) => {
+const Inference = ({home, apiToken}) => {
     const {project_name} = useParams();
 
     const [outputInference, setOutputInference] = useState(null);
@@ -13,7 +13,12 @@ const Inference = ({apiToken}) => {
     const navigate = useNavigate();
 
     const handleCancel = (e) => {
-        navigate("/dashboard")
+        if(home) {
+            navigate("/")
+        }
+        else {
+            navigate("/dashboard")
+        }
     }
 
     const handleImageUpload = (e) => {
