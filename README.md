@@ -11,6 +11,12 @@ This application has the following features:
 - Model publishing
 - Personal model object detection inference
 - User search model object detection inference
+## Setup
+In order to run the application, assuming the backend is running on the same machine already, perform the following:
+1. Clone this repository to your machine where the backend is running.
+2. Install dependencies using `npm i` in the root of this repository.
+3. Run `npm run dev` to test the application or `npm run test` to run jest test suites for the application
+Look at the README for https://github.com/jwburke02/ec530-diyml in order to run the backend.
 # Project Components
 ## Home
 The Home Screen is the start of the application. Once loading into the Web App, the first view is of the title and buttons to either create an account or to log into the application:
@@ -103,4 +109,6 @@ Inside the folder `Demonstration Videos`, there are videos which show this Web A
     - This video showcases object detection is capable of multiple object detection
     - This video showcases that only published projects are searchable, as Joveve's unpublished projects do not display for the new user
 # Application Testing
-The E530 DIYML Frontend Application is unit tested using the Jest package for React JS. This allows us to test jsx files, using Babel to convert between jsx and js for testing purposes.
+The E530 DIYML Frontend Application is unit tested using the Jest package for React JS. This allows us to test jsx files, using Babel to convert between jsx and js for testing purposes.  
+
+Currently, all tests are able to pass when ran locally. These are testing for correct component rendering given the state and props passed.  
